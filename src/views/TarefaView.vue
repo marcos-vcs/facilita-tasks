@@ -15,7 +15,7 @@ export default {
 </script>
 
 <template>
-  <main>
+  <main class="container-tarefas">
     <h2 class="titulo">Minhas Tarefas</h2>
     <p class="subtitulo">Olá <span>Eduardo Pereira</span>, você tem <span>4 tarefas</span> pendentes.</p>
 
@@ -25,6 +25,13 @@ export default {
 </template>
 
 <style lang="stylus" scoped>
+.container-tarefas
+  width 60%
+  height: 100%
+  display flex
+  flex-direction column
+  margin 20px auto 0 auto
+
 .titulo
   font-size 1.62rem
   font-family 'Gilroy Bold'
@@ -35,4 +42,8 @@ export default {
   color var(--cinza-medio)
 .subtitulo span
   color var(--azul-medio)
+
+@media screen and (max-width: 992px)
+  .container-tarefas
+    width 80%
 </style>
