@@ -15,7 +15,6 @@ export default {
       foto="/images/foto-perfil.png" />
   </header>
   <aside>
-
   </aside>
   <main>
 
