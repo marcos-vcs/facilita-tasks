@@ -3,6 +3,7 @@ import BotaoFlutuanteComponent from '@/components/BotaoFlutuanteComponent.vue';
 import CabecalhoComponent from '@/components/CabecalhoComponent.vue';
 import MenuLateralComponent from '@/components/MenuLateralComponent.vue';
 import SubMenuLateralComponent from '@/components/SubMenuLateralComponent.vue'
+import TarefaView from './TarefaView.vue';
 
 export default {
   name: 'HomeView',
@@ -16,6 +17,7 @@ export default {
     MenuLateralComponent,
     SubMenuLateralComponent,
     BotaoFlutuanteComponent,
+    TarefaView,
   },
   methods: {
     incrementTeste() {
@@ -33,11 +35,9 @@ export default {
       <div class="principal">
         <sub-menu-lateral-component class="submenu" />
         <div class="conteudo">
-          CONTEUDO
-          <!-- Adicione aqui o conteúdo principal da página -->
+          <tarefa-view />
         </div>
       </div>
-
     </div>
   </div>
 
@@ -60,7 +60,6 @@ export default {
   display flex
   align-items center
   justify-content flex-end
-
 .conteudo
   flex 1
   background-color var(--cor-fundo-home)

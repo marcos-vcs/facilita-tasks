@@ -25,6 +25,8 @@ export default {
 
 <style lang="stylus" scoped>
 .container
+    background-color var(--branco-fundo-submenu)
+    box-shadow 0px 1px 6px rgba(40, 56, 72, 0.1)
     width 230px
     display flex
     flex-flow row wrap
