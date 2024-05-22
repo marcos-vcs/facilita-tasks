@@ -1,6 +1,8 @@
 <script>
+import BotaoFlutuanteComponent from '@/components/BotaoFlutuanteComponent.vue';
 import CabecalhoComponent from '@/components/CabecalhoComponent.vue';
 import MenuLateralComponent from '@/components/MenuLateralComponent.vue';
+import SubMenuLateralComponent from '@/components/SubMenuLateralComponent.vue'
 
 export default {
   name: 'HomeView',
@@ -12,6 +14,8 @@ export default {
   components: {
     CabecalhoComponent,
     MenuLateralComponent,
+    SubMenuLateralComponent,
+    BotaoFlutuanteComponent,
   },
   methods: {
     incrementTeste() {
@@ -23,26 +27,35 @@ export default {
 
 <template>
   <div class="container">
-    <menu-lateral-component class="menu-lateral" />
+    <menu-lateral-component />
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
-      <div class="conteudo">
-        <!-- Adicione aqui o conteúdo principal da página -->
+      <div class="principal">
+        <sub-menu-lateral-component class="submenu" />
+        <div class="conteudo">
+          CONTEUDO
+          <!-- Adicione aqui o conteúdo principal da página -->
+        </div>
       </div>
+
     </div>
   </div>
+
+  <botao-flutuante-component />
 </template>
 
 <style lang="stylus" scoped>
 .container
   display flex
-  height 100vh
-
+.principal
+  display flex
+  flex-direction row
 .conteudo-principal
   display flex
   flex-direction column
   flex 1
-
+.submenu
+  height calc(100vh - 69px)
 .topo
   display flex
   align-items center

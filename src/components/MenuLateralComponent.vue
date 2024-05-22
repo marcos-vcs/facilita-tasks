@@ -33,34 +33,35 @@ export default {
 
 <style lang="stylus" scoped>
 .container
-    width: 115px
-    height: 100vh
-    background-color: var(--azul-medio)
+    display flex
+    flex-direction column
+    width 115px
+    height 100vh
+    background-color var(--azul-medio)
 .logo
-    margin: 20px auto 0px auto
+    margin 20px auto 0px auto
 .menu-lateral
-    width: 115px
-    display: flex
-    flex-direction: column
-    justify-content: center
-    margin: auto
+    width 115px
+    display flex
+    flex-direction column
+    justify-content center
+    margin auto
 .lista-opcoes
-    list-style: none
-    margin: 0
-    padding: 0
+    list-style none
+    margin 0
+    padding 0
 .lista-opcoes li
-    
-    text-align: center
-    margin: auto
-    padding: 18px 0px
-    color: var(--branco)
-    font-family: 'Gilroy Bold'
-    font-size: 0.75rem
+    text-align center
+    margin auto
+    padding 18px 0px
+    color var(--branco)
+    font-family 'Gilroy Bold'
+    font-size 0.75rem
 .lista-opcoes li:first-child
-    border-top: 1px solid var(--azul-borda-menu)
+    border-top 1px solid var(--azul-borda-menu)
 .lista-opcoes li:not(:first-child):not(:last-child)
-    border-top: 1px solid var(--azul-borda-menu)
-    border-bottom: 1px solid var(--azul-borda-menu)
+    border-top 1px solid var(--azul-borda-menu)
+    border-bottom 1px solid var(--azul-borda-menu)
 .lista-opcoes li:last-child
-    border-bottom: 1px solid var(--azul-borda-menu)
+    border-bottom 1px solid var(--azul-borda-menu)
 </style>

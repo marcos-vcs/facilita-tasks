@@ -29,16 +29,16 @@ export default {
 
 <style lang="stylus" scoped>
 .label
-    font-size: 14px
-    font-family: 'Gilroy SemiBold'
-    color: var(--azul-label)
+    font-size 14px
+    font-family 'Gilroy SemiBold'
+    color var(--azul-label)
 .input
-    font-family: 'Gilroy Medium'
-    font-size: 16px
-    border: 2px solid var(--azul-claro)
-    border-radius: 5px
-    transition: 0.3s
+    font-family 'Gilroy Medium'
+    font-size 16px
+    border 2px solid var(--azul-claro)
+    border-radius 5px
+    transition 0.3s
 .input:focus
-    outline: none
-    border: 2px solid var(--azul-medio)
+    outline none
+    border 2px solid var(--azul-medio)
 </style>

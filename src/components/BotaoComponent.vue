@@ -46,14 +46,13 @@ export default {
 
 <style lang="stylus" scoped>
 .botao
-    border-radius: 4px
-    background: var(--verde)
-    border: 0
-    font-family: 'Gilroy Bold'
+    border-radius 4px
+    background var(--verde)
+    border 0
+    font-family 'Gilroy Bold'
 .botao:hover
-    cursor: pointer
-    
+    cursor pointer
 .botao:focus
-    outline: none
-    border: 2px solid var(--azul-medio)
+    outline none
+    border 2px solid var(--azul-medio)
 </style>
