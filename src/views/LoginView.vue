@@ -7,6 +7,11 @@ export default {
     components: {
         BotaoComponent,
         CampoComponent
+    },
+    methods: {
+        enviar() {
+            this.$router.push('/home');
+        }
     }
 }
 </script>
@@ -20,7 +25,7 @@ export default {
         <main class="conteudo_principal">
             <!-- formulário -->
             <h3 class="titulo">Entre com seus dados de acesso.</h3>
-            <form class="formulario">
+            <form class="formulario" @submit.prevent="enviar">
                 <div class="campo mb-16">
                     <campo-component id="nome-ou-email" texto-label="Nome de usuário ou e-mail:"></campo-component>
                 </div>
@@ -64,6 +69,8 @@ export default {
     color: var(--azul-escuro)
 .link_esqueci_senha
     font-size: 0.81rem
+.link_esqueci_senha:focus
+    outline: 2px solid var(--azul-medio)
 
 @media screen and (max-width: 992px)
     .cabecalho

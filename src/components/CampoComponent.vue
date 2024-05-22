@@ -33,6 +33,7 @@ export default {
     font-family: 'Gilroy SemiBold'
     color: var(--azul-label)
 .input
+    font-family: 'Gilroy Medium'
     font-size: 16px
     border: 2px solid var(--azul-claro)
     border-radius: 5px
@@ -40,5 +41,4 @@ export default {
 .input:focus
     outline: none
     border: 2px solid var(--azul-medio)
-    font-family: 'Gilroy Medium'
 </style>
