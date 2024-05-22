@@ -1,31 +1,54 @@
 <script>
-import AvatarComponent from '@/components/AvatarComponent.vue';
+import CabecalhoComponent from '@/components/CabecalhoComponent.vue';
+import MenuLateralComponent from '@/components/MenuLateralComponent.vue';
 
 export default {
   name: 'HomeView',
+  computed: {
+    teste() {
+      return this.$store.state.teste;
+    }
+  },
   components: {
-    AvatarComponent,
+    CabecalhoComponent,
+    MenuLateralComponent,
+  },
+  methods: {
+    incrementTeste() {
+      this.$store.commit('teste');
+    }
   }
 }
 </script>
 
 <template>
-  <header class="barra-superior">
-    <avatar-component class="avatar" nome="Eduardo Pereira da Costa" cargo="Front-end Developer"
-      foto="/images/foto-perfil.png" />
-  </header>
-  <aside>
-  </aside>
-  <main>
-
-  </main>
+  <div class="container">
+    <menu-lateral-component class="menu-lateral" />
+    <div class="conteudo-principal">
+      <cabecalho-component class="topo" />
+      <div class="conteudo">
+        <!-- Adicione aqui o conteúdo principal da página -->
+      </div>
+    </div>
+  </div>
 </template>
 
 <style lang="stylus" scoped>
-.barra-superior
-  display: flex
-  justify-content: flex-end
-  padding: 5px 30px 5px 5px
-  box-shadow: 0px 1px 6px rgba(40, 56, 72, 0.1)
-  
+.container
+  display flex
+  height 100vh
+
+.conteudo-principal
+  display flex
+  flex-direction column
+  flex 1
+
+.topo
+  display flex
+  align-items center
+  justify-content flex-end
+
+.conteudo
+  flex 1
+  background-color var(--cor-fundo-home)
 </style>
