@@ -3,12 +3,11 @@ import { createStore } from 'vuex'
 export const store = createStore({
   state() {
     return {
-      teste: 0
+      dadosPessoaLogada: {
+        nome: 'Eduardo Pereira da Costa',
+        profissao: 'Front-end Developer'
+      }
     }
   },
-  mutations: {
-    teste(state) {
-      state.teste++
-    }
-  }
+  mutations: {}
 })

@@ -3,10 +3,6 @@ export default {
     name: 'CampoPesquisaComponent',
     emits: ['pesquisaAtualizada'],
     props: {
-        larguraCampoEmPx: {
-            type: Number,
-            default: 35
-        },
         placeholder: {
             type: String,
             default: 'Buscar Tarefas'
@@ -26,12 +22,12 @@ export default {
 </script>
 
 <template>
-    <input v-model="pesquisa" @input="emitirPesquisa" class="campo-pesquisa"
-        :style="{ 'line-height': `${larguraCampoEmPx}px` }" type="text" :placeholder="placeholder">
+    <input v-model="pesquisa" @input="emitirPesquisa" class="campo-pesquisa" type="text" :placeholder="placeholder">
 </template>
 
 <style lang="stylus" scoped>
 .campo-pesquisa
+    line-height 35px
     min-width 300px
     padding: 0px 40px 0px 10px
     background transparent
