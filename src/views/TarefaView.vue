@@ -1,5 +1,7 @@
 <script>
 import CampoPesquisaComponent from '@/components/CampoPesquisaComponent.vue';
+import ModalComponent from '@/components/ModalComponent.vue';
+import ModalConfirmacaoComponent from '@/components/ModalConfirmacaoComponent.vue';
 import TarefaComponent from '@/components/TarefaComponent.vue';
 
 export default {
@@ -7,9 +9,12 @@ export default {
   components: {
     CampoPesquisaComponent,
     TarefaComponent,
+    ModalComponent,
+    ModalConfirmacaoComponent,
   },
   data() {
     return {
+      estadoModal: true,
       dados: [
         {
           id: 1,
@@ -49,6 +54,10 @@ export default {
   methods: {
     pesquisa(valor) {
       console.log('valor campo pesquisa: ', valor);
+    },
+    atualizaEhFinalizado(id, novoValor) {
+      console.log('atualizaEhFinalizado', id, novoValor)
+      this.dados.find(d => d.id === id).ehFinalizado = novoValor
     }
   }
 }
@@ -62,13 +71,47 @@ export default {
     <campo-pesquisa-component class="pesquisa-component" @pesquisa-atualizada="pesquisa" />
 
     <div class="lista-tarefas">
-      <tarefa-component v-for="dado in dados" :key="dado.id" :titulo="dado.titulo" :categoria="dado.categoria" />
+      <tarefa-component v-for="dado in dados" :key="dado.id" @ehFinalizadoMudou="atualizaEhFinalizado" :id="dado.id"
+        :titulo="dado.titulo" :categoria="dado.categoria" :eh-finalizado="dado.ehFinalizado" />
     </div>
   </main>
 
+  <!--   <modal-component @fechar="estadoModal = !estadoModal" :visivel="estadoModal">
+    <template v-slot:titulo>Cadastrar Tarefa</template>
+<template v-slot:conteudo>
+      Cadastrar Tarefa Cadastrar Tarefa Cadastrar Tarefa Cadastrar Tarefa
+    </template>
+</modal-component> -->
+
+  <modal-confirmacao-component @fechar="estadoModal = !estadoModal" :visivel="estadoModal">
+    <template v-slot:titulo>
+      <div class="titulo-modal-confirmacao">
+        <img src="/images/icone-lixeira.png" alt="Ícone de lixeira.">
+        <p>Tem certeza que deseja <span>excluir</span> esta tarefa?</p>
+      </div>
+
+    </template>
+    <template v-slot:descricao>
+      <p class="descricao-modal-confirmacao">
+        Esta ação não poderá ser desfeita.
+      </p>
+    </template>
+  </modal-confirmacao-component>
 </template>
 
 <style lang="stylus" scoped>
+.titulo-modal-confirmacao
+  display flex
+  flex-direction column
+  align-items center
+  padding 40px 0px 30px 0px
+  font-size 20px
+  font-family 'Gilroy Bold'
+  color var(--azul-escuro)
+.titulo-modal-confirmacao p
+  margin 10px 0px 0px 0px
+.titulo-modal-confirmacao span
+  color var(--vermelho)
 .container-tarefas
   width 60%
   height: 100%
@@ -81,6 +124,7 @@ export default {
   font-size 1.62rem
   font-family 'Gilroy Bold'
   color var(--azul-escuro)
+  transition 0.3s
 .subtitulo
   margin 0 0 30px 0
   font-family 'Gilroy SemiBold'

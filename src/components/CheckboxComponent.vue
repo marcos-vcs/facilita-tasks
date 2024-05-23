@@ -1,35 +1,36 @@
 <script>
 export default {
-    name: 'CheckboxComponent',
-    props: {
-        value: {
-            type: Boolean,
-            default: false
-        }
-    },
-    data() {
-        return {
-            checked: this.value
-        };
-    },
-    watch: {
-        value(newVal) {
-            this.checked = newVal;
-        }
-    },
-    methods: {
-        emitChange() {
-            this.$emit('input', this.checked);
-        }
+  name: 'CheckboxComponent',
+  emits: ['checked'],
+  props: {
+    value: {
+      type: Boolean,
+      default: false
     }
+  },
+  data() {
+    return {
+      checked: this.value
+    };
+  },
+  watch: {
+    value(newVal) {
+      this.checked = newVal;
+    }
+  },
+  methods: {
+    emitChange() {
+      this.$emit('checked', this.checked);
+    }
+  }
 };
 </script>
 
 <template>
-    <label class="custom-checkbox">
-        <input type="checkbox" v-model="checked" @change="emitChange">
-        <span class="checkmark"></span>
-    </label>
+  <label class="custom-checkbox">
+    <input type="checkbox" v-model="checked" @change="emitChange">
+    <span class="checkmark"></span>
+  </label>
 </template>
 
 <style lang="stylus" scoped>
