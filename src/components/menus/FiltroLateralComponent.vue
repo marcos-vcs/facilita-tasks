@@ -83,7 +83,6 @@ export default {
         flex-flow row wrap
         gap 20px
         align-items center
-        margin auto
     .opcoes li
         font-size 0.8rem
         align-items baseline

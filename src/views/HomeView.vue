@@ -17,7 +17,7 @@ export default {
 
 <template>
   <div class="container">
-    <menu-lateral-component />
+    <menu-lateral-component class="menu-lateral" />
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
       <div class="principal">
@@ -57,4 +57,6 @@ export default {
   .filtro
     width 100%
     height auto
+  .menu-lateral
+    display none
 </style>
