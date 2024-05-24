@@ -1,7 +1,5 @@
 <script>
 import CampoPesquisaComponent from '@/components/CampoPesquisaComponent.vue';
-import ModalComponent from '@/components/ModalComponent.vue';
-import ModalConfirmacaoComponent from '@/components/ModalConfirmacaoComponent.vue';
 import TarefaComponent from '@/components/TarefaComponent.vue';
 
 export default {
@@ -9,8 +7,6 @@ export default {
   components: {
     CampoPesquisaComponent,
     TarefaComponent,
-    ModalComponent,
-    ModalConfirmacaoComponent,
   },
   data() {
     return {
@@ -81,30 +77,17 @@ export default {
       Cadastrar Tarefa Cadastrar Tarefa Cadastrar Tarefa Cadastrar Tarefa
     </template>
 </modal-component> -->
-
-  <modal-confirmacao-component @fechar="estadoModal = !estadoModal" :visivel="estadoModal">
-    <template v-slot:titulo>
-      <div class="titulo-modal-confirmacao">
-        <img src="/images/icone-lixeira.png" alt="Ícone de lixeira.">
-        <p>Tem certeza que deseja <span>excluir</span> esta tarefa?</p>
-      </div>
-
-    </template>
-    <template v-slot:descricao>
-      <p class="descricao-modal-confirmacao">
-        Esta ação não poderá ser desfeita.
-      </p>
-    </template>
-  </modal-confirmacao-component>
 </template>
 
 <style lang="stylus" scoped>
+.lista-tarefas
+  padding-bottom 30px
 .titulo-modal-confirmacao
   display flex
   flex-direction column
   align-items center
   padding 40px 0px 30px 0px
-  font-size 20px
+  font-size 1.25rem
   font-family 'Gilroy Bold'
   color var(--azul-escuro)
 .titulo-modal-confirmacao p

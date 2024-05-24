@@ -1,6 +1,7 @@
 <script>
 export default {
     name: 'MenuComponent',
+    emits: ['clicou'],
     props: {
         opcoesMenu: {
             type: Array,
@@ -16,20 +17,24 @@ export default {
         toggleMenu() {
             this.menuAberto = !this.menuAberto;
         },
-        closeMenu() {
+        fecharMenu() {
             this.menuAberto = false;
+        },
+        clicou(opcao) {
+            this.$emit('clicou', opcao);
+            this.fecharMenu();
         }
     }
 };
 </script>
 
 <template>
-    <div class="menu-container" v-click-outside="closeMenu">
+    <div class="menu-container" v-click-outside="fecharMenu">
         <div class="menu-trigger" @click="toggleMenu">
             <slot name="menu-icon"></slot>
         </div>
         <ul class="itens-menu" v-if="menuAberto">
-            <li class="itens-menu__item" v-for="(opcao, key) in opcoesMenu" :key="key">
+            <li class="itens-menu__item" v-for="(opcao, key) in opcoesMenu" :key="key" @click="clicou(opcao)">
                 <div class="bolinha" :style="{ 'background-color': opcao.cor }"></div>
                 <div>{{ opcao.texto }}</div>
             </li>

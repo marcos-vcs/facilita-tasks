@@ -2,6 +2,7 @@
 import ChipsComponent from './ChipsComponent.vue';
 import CheckboxComponent from './CheckboxComponent.vue'
 import MenuComponent from './MenuComponent.vue';
+import ModalConfirmacaoComponent from './ModalConfirmacaoComponent.vue';
 
 export default {
     name: 'TarefaComponent',
@@ -9,7 +10,8 @@ export default {
     components: {
         ChipsComponent,
         CheckboxComponent,
-        MenuComponent
+        MenuComponent,
+        ModalConfirmacaoComponent,
     },
     props: {
         id: {
@@ -33,7 +35,8 @@ export default {
             opcoesMenu: [
                 { texto: 'Editar', cor: 'var(--verde)' },
                 { texto: 'Excluir', cor: 'var(--cor-fundo-checkbox)' },
-            ]
+            ],
+            estadoModalExclusao: false,
         }
     },
     computed: {
@@ -51,6 +54,27 @@ export default {
     methods: {
         checkbox(valor) {
             this.$emit('ehFinalizadoMudou', this.id, valor);
+        },
+        opcaoMenuClicada(opcao) {
+            switch (opcao.texto) {
+                case 'Editar':
+                    break;
+                case 'Excluir':
+                    this.estadoModalExclusao = true;
+                    break;
+            }
+            console.log(opcao);
+            //mecanica de remover tarefa
+        },
+        excluirTarefa(opcao) {
+            if (opcao === false) {
+                this.estadoModalExclusao = false;
+                return;
+            }
+
+            // mecanica de excluir item
+
+            this.estadoModalExclusao = false;
         }
     }
 }
@@ -72,7 +96,7 @@ export default {
                 <chips-component :texto="categoria" :cor-fundo="corCategoria" />
             </div>
             <div>
-                <menu-component :opcoes-menu="opcoesMenu">
+                <menu-component @clicou="opcaoMenuClicada" :opcoes-menu="opcoesMenu">
                     <template v-slot:menu-icon>
                         <i class="fa-solid fa-ellipsis-vertical icone-menu"></i>
                     </template>
@@ -80,9 +104,37 @@ export default {
             </div>
         </div>
     </div>
+
+    <modal-confirmacao-component @botao-clicado="excluirTarefa" :visivel="estadoModalExclusao">
+        <template v-slot:titulo>
+            <div class="titulo-modal-confirmacao">
+                <img src="/images/icone-lixeira.png" alt="Ícone de lixeira.">
+                <p>Tem certeza que deseja <span>excluir</span> esta tarefa?</p>
+            </div>
+
+        </template>
+        <template v-slot:descricao>
+            <p>
+                Esta ação não poderá ser desfeita.
+            </p>
+        </template>
+    </modal-confirmacao-component>
 </template>
 
 <style lang="stylus" scoped>
+.titulo-modal-confirmacao
+  display flex
+  flex-direction column
+  align-items center
+  padding 40px 0px 30px 0px
+  font-size 1.25rem
+  font-family 'Gilroy Bold'
+  color var(--azul-escuro)
+.titulo-modal-confirmacao p
+  margin 10px 0px 0px 0px
+.titulo-modal-confirmacao span
+  color var(--vermelho)
+
 .titulo-e-checkbox, .categoria-e-menu
     display flex
     flex-direction row
@@ -95,9 +147,10 @@ export default {
 .categoria-e-menu
     justify-content flex-end
     flex 1
+    gap 23px
     padding 0 8px
 .icone-menu
-    font-size 17px
+    font-size 1.06rem
     color: var(--azul-label)
 .trunca-texto
     display inline-block
@@ -108,7 +161,7 @@ export default {
 .ehFinalizada
     width 32px
 .tarefa__titulo
-    font-size 15px
+    font-size 0.93rem
     font-family 'Gilroy SemiBold'
     color var(--cor-titulo-tarefa)
 .tarefa__titulo-checked

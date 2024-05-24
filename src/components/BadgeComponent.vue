@@ -27,7 +27,7 @@ export default {
     display flex
     align-items center
     justify-content center
-    font-size 11px
+    font-size 0.68rem
     font-family 'Gilroy Bold'
     border-radius 50%
     padding 5px

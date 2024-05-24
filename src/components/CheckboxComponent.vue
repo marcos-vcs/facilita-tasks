@@ -39,7 +39,7 @@ export default {
     position relative
     padding-left 30px
     cursor pointer
-    font-size 22px
+    font-size 1.37rem
     user-select none
   
     input

@@ -1,5 +1,5 @@
 export default {
-  beforeMount(el, binding, vnode) {
+  beforeMount(el, binding) {
     el.clickOutsideEvent = function (event) {
       // Verifica se o clique foi fora do elemento
       if (!(el === event.target || el.contains(event.target))) {

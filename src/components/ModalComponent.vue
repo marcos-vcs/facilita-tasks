@@ -66,7 +66,7 @@ export default {
     padding 20px
     color var(--azul-label)
     float right
-    font-size 20px
+    font-size 1.25rem
 .fechar:hover, .fechar:focus
     color var(--azul-escuro)
     text-decoration none

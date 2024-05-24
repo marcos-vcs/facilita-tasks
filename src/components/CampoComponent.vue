@@ -29,12 +29,12 @@ export default {
 
 <style lang="stylus" scoped>
 .label
-    font-size 14px
+    font-size 0.87rem
     font-family 'Gilroy SemiBold'
     color var(--azul-label)
 .input
     font-family 'Gilroy Medium'
-    font-size 16px
+    font-size 1rem
     border 2px solid var(--azul-claro)
     border-radius 5px
     transition 0.3s
