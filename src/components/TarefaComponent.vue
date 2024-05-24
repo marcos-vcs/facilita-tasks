@@ -1,6 +1,7 @@
 <script>
 import ChipsComponent from './ChipsComponent.vue';
 import CheckboxComponent from './CheckboxComponent.vue'
+import MenuComponent from './MenuComponent.vue';
 
 export default {
     name: 'TarefaComponent',
@@ -8,6 +9,7 @@ export default {
     components: {
         ChipsComponent,
         CheckboxComponent,
+        MenuComponent
     },
     props: {
         id: {
@@ -24,6 +26,14 @@ export default {
         ehFinalizado: {
             type: Boolean,
             required: true
+        }
+    },
+    data() {
+        return {
+            opcoesMenu: [
+                { texto: 'Editar', cor: '#5ECDA5' },
+                { texto: 'Excluir', cor: '#D6E6EF' },
+            ]
         }
     },
     methods: {
@@ -43,9 +53,9 @@ export default {
         <div class="tarefa__categoria" v-if="categoria">
             <chips-component :texto="categoria" />
         </div>
-        <menu-component>
-
-        </menu-component>
+        <div>
+            <menu-component :opcoes-menu="opcoesMenu" />
+        </div>
     </div>
 </template>
 
