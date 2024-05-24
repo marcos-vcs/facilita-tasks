@@ -3,7 +3,7 @@ import CampoPesquisaComponent from '@/components/CampoPesquisaComponent.vue';
 import TarefaComponent from '@/components/TarefaComponent.vue';
 
 export default {
-  name: 'TarefaView',
+  name: 'TarefasView',
   components: {
     CampoPesquisaComponent,
     TarefaComponent,
@@ -11,40 +11,14 @@ export default {
   data() {
     return {
       estadoModal: true,
-      dados: [
-        {
-          id: 1,
-          titulo: 'Planejar desenvolvimento do app TodoList',
-          descricao: 'descrição exemplo',
-          categoria: 'urgente',
-          ehFinalizado: true
-        },
-        {
-          id: 2,
-          titulo: 'Criar projeto Vue.js',
-          descricao: 'descrição exemplo',
-          categoria: 'importante',
-          ehFinalizado: false
-        },
-        {
-          id: 3,
-          titulo: 'Montar telas HTML/CSS',
-          descricao: 'descrição exemplo',
-          categoria: 'importante',
-          ehFinalizado: false
-        },
-        {
-          id: 4,
-          titulo: 'Montar telas HTML/CSS',
-          descricao: 'descrição exemplo',
-          ehFinalizado: false
-        },
-      ]
     }
   },
   computed: {
     dadosPessoaLogada() {
       return this.$store.state.dadosPessoaLogada;
+    },
+    tarefas() {
+      return this.$store.state.tarefa.tarefas;
     }
   },
   methods: {
@@ -52,7 +26,7 @@ export default {
       console.log('valor campo pesquisa: ', valor);
     },
     atualizaEhFinalizado(id, novoValor) {
-      this.dados.find(d => d.id === id).ehFinalizado = novoValor
+      this.tarefas.find(d => d.id === id).ehFinalizado = novoValor
     },
   }
 }
@@ -65,10 +39,11 @@ export default {
 
     <campo-pesquisa-component class="pesquisa-component" @pesquisa-atualizada="pesquisa" />
 
-    <div class="lista-tarefas">
-      <tarefa-component v-for="dado in dados" :key="dado.id" @ehFinalizadoMudou="atualizaEhFinalizado" :id="dado.id"
+    <div class="lista-tarefas" v-if="tarefas.length > 0">
+      <tarefa-component v-for="dado in tarefas" :key="dado.id" @ehFinalizadoMudou="atualizaEhFinalizado" :id="dado.id"
         :titulo="dado.titulo" :categoria="dado.categoria" :eh-finalizado="dado.ehFinalizado" />
     </div>
+    <p v-else class="subtitulo">Nenhuma tarefa cadastrada.</p>
   </main>
 
   <!--   <modal-component @fechar="estadoModal = !estadoModal" :visivel="estadoModal">
@@ -96,7 +71,7 @@ export default {
   color var(--vermelho)
 .container-tarefas
   width 60%
-  height: 100%
+  height: calc(100% - 69px)
   display flex
   flex-direction column
   margin 20px auto 0 auto

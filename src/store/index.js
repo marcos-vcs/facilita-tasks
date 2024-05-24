@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import { tarefa } from './modulos/tarefa/index'
 
 export const store = createStore({
   state() {
@@ -9,5 +10,7 @@ export const store = createStore({
       }
     }
   },
-  mutations: {}
+  modules: {
+    tarefa
+  }
 })

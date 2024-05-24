@@ -8,18 +8,6 @@
             BotaoComponent,
         },
         props: {
-            caminhoIcone: {
-                type: String,
-                required: true
-            },
-            titulo: {
-                type: String,
-                required: true
-            },
-            descricao: {
-                type: String,
-                required: true
-            },
             tamanhoEmPercentual: {
                 type: Number,
                 default: 40
@@ -47,9 +35,9 @@
                     <slot name="conteudo"></slot>
                 </div>
                 <div class="rodape-modal">
-                    <botao-component tamanho-fonte-em-px="15" cor-fundo="var(--verde)"
+                    <botao-component :tamanho-fonte-em-px="15" cor-fundo="var(--verde)"
                         @click="botaoClicado(false)">Cancelar</botao-component>
-                    <botao-component tamanho-fonte-em-px="15" cor-fundo="var(--vermelho)"
+                    <botao-component :tamanho-fonte-em-px="15" cor-fundo="var(--vermelho)"
                         @click="botaoClicado(true)">Confirmar</botao-component>
                 </div>
             </div>
