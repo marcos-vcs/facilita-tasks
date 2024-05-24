@@ -42,8 +42,11 @@ export default {
   },
   methods: {
     pesquisa(valor) {
+      if (!valor) {
+        this.tarefas = this.tarefasVuex;
+      }
 
-      console.log('valor campo pesquisa: ', valor);
+      this.tarefas = this.tarefas.filter(t => t.titulo.includes(valor) || t.descricao.includes(valor))
     },
     atualizaEhFinalizado(id, novoValor) {
       var tarefa = this.tarefas.find(d => d.id === id);
