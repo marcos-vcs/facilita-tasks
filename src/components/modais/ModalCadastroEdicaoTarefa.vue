@@ -21,6 +21,7 @@ export default {
                 ehFinalizado: false,
             },
             titulo: 'Cadastrar Tarefa',
+            botao: 'Adicionar'
         }
     },
     props: {
@@ -37,8 +38,10 @@ export default {
         visivel() {
             if (this.id === 0) {
                 this.titulo = 'Cadastrar Tarefa';
+                this.botao = 'Adicionar';
             } else {
                 this.titulo = 'Editar Tarefa';
+                this.botao = 'Editar';
                 var tarefa = this.$store.state.tarefa.tarefas.find(t => t.id === this.id);
 
                 this.formularioInclusaoEdicao.titulo = tarefa.titulo;
@@ -113,7 +116,7 @@ export default {
                         </div>
                     </div>
                     <div class="botao">
-                        <botao-component cor-fundo="var(--cor-botao-incluir-editar)">Adicionar</botao-component>
+                        <botao-component cor-fundo="var(--cor-botao-incluir-editar)">{{ botao }}</botao-component>
                     </div>
                 </div>
             </form>

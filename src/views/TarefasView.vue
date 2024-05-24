@@ -15,21 +15,34 @@ export default {
   data() {
     return {
       estadoModalIncluir: false,
+      tarefas: [],
     }
   },
   computed: {
     dadosPessoaLogada() {
       return this.$store.state.dadosPessoaLogada;
     },
-    tarefas() {
+    tarefasVuex() {
       return this.$store.state.tarefa.tarefas;
     },
     tarefasPendentes() {
       return this.tarefas.filter(t => t.ehFinalizado === false);
     }
   },
+  watch: {
+    tarefasVuex: {
+      handler(novo) {
+        this.tarefas = novo;
+      },
+      immediate: true,
+    }
+  },
+  mounted() {
+    this.tarefas = this.tarefasVuex;
+  },
   methods: {
     pesquisa(valor) {
+
       console.log('valor campo pesquisa: ', valor);
     },
     atualizaEhFinalizado(id, novoValor) {
