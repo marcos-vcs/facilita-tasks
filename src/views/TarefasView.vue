@@ -16,9 +16,14 @@ export default {
     return {
       estadoModalIncluir: false,
       tarefas: [],
+      predicadoFiltro: () => true,
+      valorPesquisa: ''
     }
   },
   computed: {
+    categoriaAtiva() {
+      return this.$store.state.tarefa.categoriaAtiva;
+    },
     dadosPessoaLogada() {
       return this.$store.state.dadosPessoaLogada;
     },
@@ -33,23 +38,79 @@ export default {
     tarefasVuex: {
       handler(novo) {
         this.tarefas = novo;
+        this.aplicarFiltros();
+      },
+      immediate: true,
+    },
+    categoriaAtiva: {
+      handler() {
+        this.filtrar();
       },
       immediate: true,
     }
   },
   mounted() {
     this.tarefas = this.tarefasVuex;
+    this.aplicarFiltros();
   },
   methods: {
-    pesquisa(valor) {
-      if (!valor) {
-        this.tarefas = this.tarefasVuex;
+    filtrar() {
+      switch (this.categoriaAtiva) {
+        case 'todas':
+          this.predicadoFiltro = () => true;
+          break;
+        case 'urgentes':
+          this.predicadoFiltro = (t) => t.categoria === 'urgente' && !t.ehFinalizado;
+          break;
+        case 'importantes':
+          this.predicadoFiltro = (t) => t.categoria === 'importante' && !t.ehFinalizado;
+          break;
+        case 'outras':
+          this.predicadoFiltro = (t) => !t.categoria && !t.ehFinalizado;
+          break;
+        case 'finalizadas':
+          this.predicadoFiltro = (t) => t.ehFinalizado;
+          break;
+        default:
+          this.predicadoFiltro = () => true;
       }
-
-      this.tarefas = this.tarefas.filter(t => t.titulo.includes(valor) || t.descricao.includes(valor))
+      this.aplicarFiltros();
+    },
+    pesquisar(valor) {
+      this.valorPesquisa = valor;
+      this.aplicarFiltros();
+    },
+    aplicarFiltros() {
+      this.tarefas = this.tarefasVuex.filter(t => {
+        return this.predicadoFiltro(t) &&
+          (!this.valorPesquisa || t.titulo.includes(this.valorPesquisa) || t.descricao.includes(this.valorPesquisa));
+      }).sort((a, b) => {
+        if (a.ehFinalizado !== b.ehFinalizado) {
+          return a.ehFinalizado - b.ehFinalizado;
+        }
+        if (a.categoria === 'urgente' && b.categoria !== 'urgente') {
+          return -1;
+        }
+        if (a.categoria !== 'urgente' && b.categoria === 'urgente') {
+          return 1;
+        }
+        if (a.categoria === 'importante' && b.categoria !== 'importante') {
+          return -1;
+        }
+        if (a.categoria !== 'importante' && b.categoria === 'importante') {
+          return 1;
+        }
+        if (!a.categoria && b.categoria) {
+          return 1;
+        }
+        if (a.categoria && !b.categoria) {
+          return -1;
+        }
+        return 0;
+      });
     },
     atualizaEhFinalizado(id, novoValor) {
-      var tarefa = this.tarefas.find(d => d.id === id);
+      var tarefa = this.tarefas.find(t => t.id === id);
       tarefa.ehFinalizado = novoValor;
       this.$store.commit('tarefa/EDITAR', tarefa);
     },
@@ -70,7 +131,7 @@ export default {
       tarefasPendentes.length === 1 ? 'tarefa' : 'tarefas' }}</span> {{ tarefasPendentes.length === 1 ? 'pendente'
           : 'pendentes' }}.</p>
 
-    <campo-pesquisa-component class="pesquisa-component" @pesquisa-atualizada="pesquisa" />
+    <campo-pesquisa-component class="pesquisa-component" @pesquisa-atualizada="pesquisar" />
 
     <div class="lista-tarefas" v-if="tarefas.length > 0">
       <tarefa-component v-for="dado in tarefas" :key="dado.id" @ehFinalizadoMudou="atualizaEhFinalizado" :id="dado.id"

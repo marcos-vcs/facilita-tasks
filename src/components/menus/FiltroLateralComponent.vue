@@ -2,7 +2,7 @@
 import BadgeComponent from '../utilitarios/BadgeComponent.vue';
 
 export default {
-    name: 'SubMenuLateralComponent',
+    name: 'FiltroLateralComponent',
     components: {
         BadgeComponent,
     },
@@ -13,6 +13,11 @@ export default {
         atividadesImportantes() {
             return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importante');
         }
+    },
+    methods: {
+        mudarFiltroAtivo(valor) {
+            this.$store.commit('tarefa/ATUALIZA_CATEGORIA', valor);
+        }
     }
 }
 </script>
@@ -22,15 +27,16 @@ export default {
         <h3 class="titulo">Categoria</h3>
 
         <ul class="opcoes">
-            <li>Todas</li>
-            <li>Urgentes <badge-component class="ml-5" corFundo="var(--vermelho)"
+            <li @click="mudarFiltroAtivo('todas')">Todas</li>
+            <li @click="mudarFiltroAtivo('urgentes')">Urgentes <badge-component class="ml-5" corFundo="var(--vermelho)"
                     :texto="(atividadesUrgentes.lenght ?? 0) <= 100 ? atividadesUrgentes.length.toString() : '99+'" />
             </li>
-            <li>Importantes <badge-component class="ml-5" corFundo="var(--amarelo)"
+            <li @click="mudarFiltroAtivo('importantes')">Importantes <badge-component class="ml-5"
+                    corFundo="var(--amarelo)"
                     :texto="(atividadesImportantes.lenght ?? 0) <= 100 ? atividadesImportantes.length.toString() : '99+'" />
             </li>
-            <li>Outras</li>
-            <li>Finalizadas</li>
+            <li @click="mudarFiltroAtivo('outras')">Outras</li>
+            <li @click="mudarFiltroAtivo('finalizadas')">Finalizadas</li>
         </ul>
     </nav>
 </template>
@@ -56,6 +62,7 @@ export default {
     margin-left 20%
     --espaco-icone 1.3em
 .opcoes li
+    cursor pointer
     display flex
     flex-flow row wrap
     font-family 'Gilroy Bold'

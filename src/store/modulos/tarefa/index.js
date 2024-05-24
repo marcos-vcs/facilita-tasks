@@ -3,10 +3,14 @@ export const tarefa = {
   namespaced: true,
   state() {
     return {
-      tarefas: JSON.parse(localStorage.getItem('tarefas')) ?? []
+      tarefas: JSON.parse(localStorage.getItem('tarefas')) ?? [],
+      categoriaAtiva: 'todas'
     }
   },
   mutations: {
+    ATUALIZA_CATEGORIA(state, novaCategoria) {
+      state.categoriaAtiva = novaCategoria
+    },
     ADICIONAR(state, novaTarefa) {
       novaTarefa.id = new Date().getTime()
 
