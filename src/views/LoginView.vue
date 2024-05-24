@@ -70,6 +70,7 @@ export default {
 .link_esqueci_senha
     font-size: 0.81rem
 .link_esqueci_senha:focus
+    border none
     outline: 2px solid var(--azul-medio)
 
 @media screen and (max-width: 992px)

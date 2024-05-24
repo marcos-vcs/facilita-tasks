@@ -13,26 +13,23 @@ export const tarefa = {
       let tarefas = JSON.parse(localStorage.getItem('tarefas')) ?? []
       tarefas.push(novaTarefa)
 
-      state.tarefas = tarefas
       localStorage.setItem('tarefas', JSON.stringify(tarefas))
+      state.tarefas = JSON.parse(localStorage.getItem('tarefas')) ?? []
     },
     EXCLUIR(state, idTarefa) {
       let tarefas = JSON.parse(localStorage.getItem('tarefas')) ?? []
       tarefas = tarefas.filter((t) => t.id !== idTarefa)
-
-      state.tarefas = tarefas
       localStorage.setItem('tarefas', JSON.stringify(tarefas))
+      state.tarefas = tarefas
     },
     EDITAR(state, tarefa) {
       const index = state.tarefas.findIndex((t) => t.id === tarefa.id)
       if (index !== -1) {
         state.tarefas.splice(index, 1, tarefa)
         localStorage.setItem('tarefas', JSON.stringify(state.tarefas))
-        commit('tarefa/ATUALIZAR')
+        let tarefas = JSON.parse(localStorage.getItem('tarefas')) ?? []
+        state.tarefas = tarefas
       }
-    },
-    ATUALIZAR(state) {
-      state.tarefas = JSON.parse(localStorage.getItem('tarefas')) ?? []
     }
   }
 }

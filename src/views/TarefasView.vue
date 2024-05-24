@@ -1,9 +1,7 @@
 <script>
-import BotaoComponent from '@/components/BotaoComponent.vue';
 import BotaoFlutuanteComponent from '@/components/BotaoFlutuanteComponent.vue';
-import CampoComponent from '@/components/CampoComponent.vue';
 import CampoPesquisaComponent from '@/components/CampoPesquisaComponent.vue';
-import ModalComponent from '@/components/ModalComponent.vue';
+import ModalCadastroEdicaoTarefa from '@/components/ModalCadastroEdicaoTarefa.vue';
 import TarefaComponent from '@/components/TarefaComponent.vue';
 
 export default {
@@ -11,10 +9,8 @@ export default {
   components: {
     CampoPesquisaComponent,
     TarefaComponent,
-    BotaoComponent,
     BotaoFlutuanteComponent,
-    ModalComponent,
-    CampoComponent,
+    ModalCadastroEdicaoTarefa,
   },
   data() {
     return {
@@ -46,7 +42,7 @@ export default {
     },
     fecharModalIncluir() {
       this.estadoModalIncluir = false;
-    }
+    },
   }
 }
 </script>
@@ -67,66 +63,13 @@ export default {
     <p v-else class="subtitulo">Nenhuma tarefa cadastrada.</p>
   </main>
 
-  <modal-component @fechar="fecharModalIncluir" :tamanhoEmPercentual="50" :visivel="estadoModalIncluir">
-    <template v-slot:titulo>
-      Cadastrar Tarefa
-    </template>
-    <template v-slot:conteudo>
-      <form class="formulario-salvar" @submit.prevent="salvar">
-        <div class="campo">
-          <campo-component id="titulo" texto-label="Título:" :obrigatorio="true" />
-        </div>
-        <div class="campo">
-          <campo-component id="descricao" texto-label="Descrição:" largura-campo-em-px="50" tipo-campo="textarea" />
-        </div>
-        <div class="rodape">
-          <div class="radio">
-            <input type="radio" id="radio_urgente" name="categoria">
-            <label for="">Urgente</label>
-            <input type="radio" id="radio_importante" name="categoria">
-            <label for="">Importante</label>
-          </div>
-          <div class="botao">
-            <botao-component>Adicionar</botao-component>
-          </div>
-        </div>
-      </form>
-    </template>
-  </modal-component>
-
+  <modal-cadastro-edicao-tarefa @fechar="fecharModalIncluir" :visivel="estadoModalIncluir" />
   <botao-flutuante-component @clickBotao="abrirModalIncluir" />
 </template>
 
 <style lang="stylus" scoped>
-.formulario-salvar
-    display flex
-    flex-direction column
-    gap 15px
-    width 94%
-.campo
-  display flex
-  flex-direction column
-.rodape
-  display flex
-  flex-direction row
-.radio
-  display flex
-  flex-direction row
-  align-items baseline
-  gap 10px
-  font-size 0.87rem
-  font-font-family 'Gilroy SemiBold'
-  color var(--azul-label)
-.radio input
-  background red
-.botao
-  display flex
-  flex-direction column
-  align-items flex-end
-  flex 1
-
 .lista-tarefas
-  padding-bottom 30px
+  padding-bottom 40px
 .titulo-modal-confirmacao
   display flex
   flex-direction column

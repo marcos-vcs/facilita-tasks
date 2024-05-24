@@ -40,8 +40,8 @@ export default {
     border 2px solid var(--azul-claro)
     transition 0.3s
 .campo-pesquisa:focus
-    outline none
-    border 2px solid var(--azul-medio)
+    border none
+    outline 2px solid var(--azul-medio)
 .campo-pesquisa::placeholder
     color var(--azul-btn)
 </style>

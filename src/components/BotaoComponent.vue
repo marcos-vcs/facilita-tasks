@@ -46,6 +46,7 @@ export default {
 
 <style lang="stylus" scoped>
 .botao
+    transition 0.3s
     border-radius 4px
     background var(--verde)
     border 0
@@ -53,6 +54,6 @@ export default {
 .botao:hover
     cursor pointer
 .botao:focus
-    outline none
-    border 2px solid var(--azul-medio)
+    border none
+    outline 2px solid var(--azul-medio)
 </style>

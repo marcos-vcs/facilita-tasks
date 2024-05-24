@@ -11,7 +11,7 @@ export default {
             return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'urgente');
         },
         atividadesImportantes() {
-            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importantes');
+            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importante');
         }
     }
 }
@@ -24,10 +24,11 @@ export default {
         <ul class="opcoes">
             <li>Todas</li>
             <li>Urgentes <badge-component class="ml-5" corFundo="var(--vermelho)"
-                    :texto="(atividadesUrgentes.lenght ?? 0) <= 100 ? atividadesUrgentes.length : '99+'" />
+                    :texto="(atividadesUrgentes.lenght ?? 0) <= 100 ? atividadesUrgentes.length.toString() : '99+'" />
             </li>
             <li>Importantes <badge-component class="ml-5" corFundo="var(--amarelo)"
-                    :texto="(atividadesImportantes.lenght ?? 0) <= 100 ? atividadesImportantes.length : '99+'" /></li>
+                    :texto="(atividadesImportantes.lenght ?? 0) <= 100 ? atividadesImportantes.length.toString() : '99+'" />
+            </li>
             <li>Outras</li>
             <li>Finalizadas</li>
         </ul>

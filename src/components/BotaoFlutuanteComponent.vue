@@ -39,4 +39,7 @@ export default {
     transform scale(1.05)
 .botao-flutuante:active
     transform scale(0.95)
+.botao-flutuante:focus
+    border none
+    outline 2px solid var(--azul-medio)
 </style>

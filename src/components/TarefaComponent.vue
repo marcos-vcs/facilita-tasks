@@ -3,6 +3,7 @@ import ChipsComponent from './ChipsComponent.vue';
 import CheckboxComponent from './CheckboxComponent.vue'
 import MenuComponent from './MenuComponent.vue';
 import ModalConfirmacaoComponent from './ModalConfirmacaoComponent.vue';
+import ModalCadastroEdicaoTarefa from './ModalCadastroEdicaoTarefa.vue';
 
 export default {
     name: 'TarefaComponent',
@@ -12,6 +13,7 @@ export default {
         CheckboxComponent,
         MenuComponent,
         ModalConfirmacaoComponent,
+        ModalCadastroEdicaoTarefa,
     },
     props: {
         id: {
@@ -37,6 +39,7 @@ export default {
                 { texto: 'Excluir', cor: 'var(--cor-fundo-checkbox)' },
             ],
             estadoModalExclusao: false,
+            estadoModalEdicao: false,
         }
     },
     computed: {
@@ -58,6 +61,7 @@ export default {
         opcaoMenuClicada(opcao) {
             switch (opcao.texto) {
                 case 'Editar':
+                    this.estadoModalEdicao = true;
                     break;
                 case 'Excluir':
                     this.estadoModalExclusao = true;
@@ -73,7 +77,7 @@ export default {
             this.$store.commit('tarefa/EXCLUIR', this.id);
 
             this.estadoModalExclusao = false;
-        }
+        },
     }
 }
 </script>
@@ -102,6 +106,8 @@ export default {
             </div>
         </div>
     </div>
+
+    <modal-cadastro-edicao-tarefa @fechar="estadoModalEdicao = false" :visivel="estadoModalEdicao" :id="id" />
 
     <modal-confirmacao-component @botao-clicado="excluirTarefa" :visivel="estadoModalExclusao">
         <template v-slot:titulo>

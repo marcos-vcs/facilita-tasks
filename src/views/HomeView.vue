@@ -6,22 +6,12 @@ import TarefasView from './TarefasView.vue';
 
 export default {
   name: 'HomeView',
-  computed: {
-    teste() {
-      return this.$store.state.teste;
-    }
-  },
   components: {
     CabecalhoComponent,
     MenuLateralComponent,
     SubMenuLateralComponent,
     TarefasView,
   },
-  methods: {
-    incrementTeste() {
-      this.$store.commit('teste');
-    }
-  }
 }
 </script>
 
