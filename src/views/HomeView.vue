@@ -21,7 +21,7 @@ export default {
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
       <div class="principal">
-        <sub-menu-lateral-component class="submenu" />
+        <sub-menu-lateral-component class="filtro" />
         <div class="conteudo">
           <tarefas-view />
         </div>
@@ -40,7 +40,7 @@ export default {
   display flex
   flex-direction column
   flex 1
-.submenu, .conteudo
+.filtro, .conteudo
   height calc(100vh - 69px)
 .topo
   display flex
@@ -50,4 +50,11 @@ export default {
   overflow-y auto
   flex 1
   background-color var(--cor-fundo-home)
+
+@media screen and (max-width: 992px)
+  .principal
+    flex-direction column
+  .filtro
+    width 100%
+    height auto
 </style>

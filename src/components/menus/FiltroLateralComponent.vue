@@ -76,4 +76,19 @@ export default {
     width var(--espaco-icone)
 .ml-5
     margin-left 5px
+
+@media screen and (max-width: 992px)
+    .opcoes
+        display flex
+        flex-flow row wrap
+        gap 20px
+        align-items center
+        margin auto
+    .opcoes li
+        font-size 0.8rem
+        align-items baseline
+    .titulo
+        font-size 1rem
+        display none
+
 </style>
