@@ -1,5 +1,5 @@
     <script>
-    import BotaoComponent from './BotaoComponent.vue';
+    import BotaoComponent from '../botoes/BotaoComponent.vue';
 
     export default {
         name: 'ModalConfirmacaoComponent',

@@ -1,6 +1,6 @@
 <script>
-import BotaoComponent from '@/components/BotaoComponent.vue'
-import CampoComponent from '@/components/CampoComponent.vue'
+import BotaoComponent from '@/components/botoes/BotaoComponent.vue'
+import CampoComponent from '@/components/formularios/CampoComponent.vue'
 
 export default {
     name: 'LoginView',

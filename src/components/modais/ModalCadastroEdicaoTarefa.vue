@@ -1,6 +1,6 @@
 <script>
-import BotaoComponent from './BotaoComponent.vue';
-import CampoComponent from './CampoComponent.vue';
+import BotaoComponent from '../botoes/BotaoComponent.vue';
+import CampoComponent from '../formularios/CampoComponent.vue';
 import ModalComponent from './ModalComponent.vue';
 
 export default {

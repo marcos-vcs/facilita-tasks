@@ -1,5 +1,5 @@
 <script>
-import BadgeComponent from './BadgeComponent.vue';
+import BadgeComponent from '../utilitarios/BadgeComponent.vue';
 
 export default {
     name: 'SubMenuLateralComponent',

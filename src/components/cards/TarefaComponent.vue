@@ -1,9 +1,9 @@
 <script>
-import ChipsComponent from './ChipsComponent.vue';
-import CheckboxComponent from './CheckboxComponent.vue'
-import MenuComponent from './MenuComponent.vue';
-import ModalConfirmacaoComponent from './ModalConfirmacaoComponent.vue';
-import ModalCadastroEdicaoTarefa from './ModalCadastroEdicaoTarefa.vue';
+import ChipsComponent from '../utilitarios/ChipsComponent.vue';
+import CheckboxComponent from '../formularios/CheckboxComponent.vue'
+import MenuComponent from '../menus/MenuComponent.vue';
+import ModalConfirmacaoComponent from '../modais/ModalConfirmacaoComponent.vue';
+import ModalCadastroEdicaoTarefa from '../modais/ModalCadastroEdicaoTarefa.vue';
 
 export default {
     name: 'TarefaComponent',

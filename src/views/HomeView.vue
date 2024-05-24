@@ -1,7 +1,7 @@
 <script>
-import CabecalhoComponent from '@/components/CabecalhoComponent.vue';
-import MenuLateralComponent from '@/components/MenuLateralComponent.vue';
-import SubMenuLateralComponent from '@/components/SubMenuLateralComponent.vue'
+import CabecalhoComponent from '@/components/menus/CabecalhoComponent.vue';
+import MenuLateralComponent from '@/components/menus/MenuLateralComponent.vue';
+import SubMenuLateralComponent from '@/components/menus/SubMenuLateralComponent.vue'
 import TarefasView from './TarefasView.vue';
 
 export default {

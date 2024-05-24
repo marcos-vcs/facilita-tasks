@@ -1,8 +1,8 @@
 <script>
-import BotaoFlutuanteComponent from '@/components/BotaoFlutuanteComponent.vue';
-import CampoPesquisaComponent from '@/components/CampoPesquisaComponent.vue';
-import ModalCadastroEdicaoTarefa from '@/components/ModalCadastroEdicaoTarefa.vue';
-import TarefaComponent from '@/components/TarefaComponent.vue';
+import BotaoFlutuanteComponent from '@/components/botoes/BotaoFlutuanteComponent.vue';
+import CampoPesquisaComponent from '@/components/formularios/CampoPesquisaComponent.vue';
+import ModalCadastroEdicaoTarefa from '@/components/modais/ModalCadastroEdicaoTarefa.vue';
+import TarefaComponent from '@/components/cards/TarefaComponent.vue';
 
 export default {
   name: 'TarefasView',
