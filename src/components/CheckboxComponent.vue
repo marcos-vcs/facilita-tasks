@@ -43,13 +43,14 @@ export default {
     user-select none
   
     input
+      display none
       position absolute
       opacity 0
       cursor pointer
   
     .checkmark
       position absolute
-      top -17px
+      top -22px
       left 0
       height 32px
       width 32px

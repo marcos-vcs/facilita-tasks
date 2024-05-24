@@ -31,9 +31,21 @@ export default {
     data() {
         return {
             opcoesMenu: [
-                { texto: 'Editar', cor: '#5ECDA5' },
-                { texto: 'Excluir', cor: '#D6E6EF' },
+                { texto: 'Editar', cor: 'var(--verde)' },
+                { texto: 'Excluir', cor: 'var(--cor-fundo-checkbox)' },
             ]
+        }
+    },
+    computed: {
+        corCategoria() {
+            switch (this.categoria) {
+                case 'urgente':
+                    return 'var(--vermelho)';
+                case 'importante':
+                    return 'var(--amarelo)';
+                default:
+                    return undefined
+            }
         }
     },
     methods: {
@@ -46,26 +58,53 @@ export default {
 
 <template>
     <div class="tarefa">
-        <checkbox-component :value="ehFinalizado" @checked="checkbox" />
-        <h4 class="tarefa__titulo trunca-texto" :titulo="titulo" :class="ehFinalizado ? 'tarefa__titulo-checked' : ''">
-            {{ titulo }}
-        </h4>
-        <div class="tarefa__categoria" v-if="categoria">
-            <chips-component :texto="categoria" />
+        <div class="titulo-e-checkbox">
+            <div>
+                <checkbox-component :value="ehFinalizado" @checked="checkbox" />
+            </div>
+            <h4 class="tarefa__titulo trunca-texto" :titulo="titulo"
+                :class="ehFinalizado ? 'tarefa__titulo-checked' : ''">
+                {{ titulo }}
+            </h4>
         </div>
-        <div>
-            <menu-component :opcoes-menu="opcoesMenu" />
+        <div class="categoria-e-menu">
+            <div class="tarefa__categoria" v-if="categoria">
+                <chips-component :texto="categoria" :cor-fundo="corCategoria" />
+            </div>
+            <div>
+                <menu-component :opcoes-menu="opcoesMenu">
+                    <template v-slot:menu-icon>
+                        <i class="fa-solid fa-ellipsis-vertical icone-menu"></i>
+                    </template>
+                </menu-component>
+            </div>
         </div>
     </div>
 </template>
 
 <style lang="stylus" scoped>
+.titulo-e-checkbox, .categoria-e-menu
+    display flex
+    flex-direction row
+    align-items center
+    gap 10px
+.titulo-e-checkbox
+    width 75%
+    justify-content flex-start
+    gap 10px
+.categoria-e-menu
+    justify-content flex-end
+    flex 1
+    padding 0 8px
+.icone-menu
+    font-size 17px
+    color: var(--azul-label)
 .trunca-texto
     display inline-block
     white-space nowrap
     overflow hidden
     text-overflow ellipsis
-    max-width 70%
+    max-width 90%
 .ehFinalizada
     width 32px
 .tarefa__titulo
@@ -85,5 +124,4 @@ export default {
     flex-flow row wrap
     justify-content flex-start
     align-items center
-    gap 10px
 </style>

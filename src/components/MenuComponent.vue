@@ -26,7 +26,7 @@ export default {
 <template>
     <div class="menu-container" v-click-outside="closeMenu">
         <div class="menu-trigger" @click="toggleMenu">
-            <i class="fa-solid fa-ellipsis-vertical"></i>
+            <slot name="menu-icon"></slot>
         </div>
         <ul class="itens-menu" v-if="menuAberto">
             <li class="itens-menu__item" v-for="(opcao, key) in opcoesMenu" :key="key">
@@ -44,9 +44,6 @@ export default {
 
 .menu-trigger
   cursor pointer
-.menu-trigger i
-    font-size 17px
-    color: var(--azul-label)
 .itens-menu
     font-size 0.87rem
     font-family 'Gilroy SemiBold'
@@ -64,15 +61,15 @@ export default {
 .itens-menu__item
   display flex
   align-items center
-  padding 10px 16px
+  padding 10px 22px 10px 16px
   cursor pointer
 
 .itens-menu__item:hover
-  background-color #f5f5f5
+  background-color var(--branco-fundo-submenu)
 
 .bolinha
-  width 8px
-  height 8px
+  width 9px
+  height 9px
   border-radius 50%
   margin-right 8px
 </style>

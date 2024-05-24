@@ -56,9 +56,8 @@ export default {
       console.log('valor campo pesquisa: ', valor);
     },
     atualizaEhFinalizado(id, novoValor) {
-      console.log('atualizaEhFinalizado', id, novoValor)
       this.dados.find(d => d.id === id).ehFinalizado = novoValor
-    }
+    },
   }
 }
 </script>
