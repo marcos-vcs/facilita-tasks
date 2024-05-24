@@ -17,6 +17,10 @@ export default {
         larguraCampoEmPx: {
             type: Number,
             default: 30
+        },
+        obrigatorio: {
+            type: Boolean,
+            default: false
         }
     }
 }
@@ -24,7 +28,10 @@ export default {
 
 <template>
     <label class="label" :for="id">{{ textoLabel }}</label>
-    <input class="input" :style="{ 'line-height': `${larguraCampoEmPx}px` }" :type="tipoCampo" :id="id" :name="id">
+    <textarea v-if="tipoCampo === 'textarea'" class="input" :id="id" :name="id"
+        :style="{ 'line-height': `${larguraCampoEmPx}px` }" :required="obrigatorio"></textarea>
+    <input v-else class="input" :style="{ 'line-height': `${larguraCampoEmPx}px` }" :type="tipoCampo" :id="id"
+        :name="id" :required="obrigatorio">
 </template>
 
 <style lang="stylus" scoped>

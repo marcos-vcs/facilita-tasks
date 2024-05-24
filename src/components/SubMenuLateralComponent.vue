@@ -5,6 +5,14 @@ export default {
     name: 'SubMenuLateralComponent',
     components: {
         BadgeComponent,
+    },
+    computed: {
+        atividadesUrgentes() {
+            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'urgente');
+        },
+        atividadesImportantes() {
+            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importantes');
+        }
     }
 }
 </script>
@@ -15,8 +23,11 @@ export default {
 
         <ul class="opcoes">
             <li>Todas</li>
-            <li>Urgente <badge-component class="ml-5" corFundo="var(--vermelho)" texto="1" /></li>
-            <li>Importantes <badge-component class="ml-5" corFundo="var(--amarelo)" texto="2" /></li>
+            <li>Urgentes <badge-component class="ml-5" corFundo="var(--vermelho)"
+                    :texto="(atividadesUrgentes.lenght ?? 0) <= 100 ? atividadesUrgentes.length : '99+'" />
+            </li>
+            <li>Importantes <badge-component class="ml-5" corFundo="var(--amarelo)"
+                    :texto="(atividadesImportantes.lenght ?? 0) <= 100 ? atividadesImportantes.length : '99+'" /></li>
             <li>Outras</li>
             <li>Finalizadas</li>
         </ul>

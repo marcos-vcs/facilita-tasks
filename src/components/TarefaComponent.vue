@@ -132,7 +132,8 @@ export default {
   margin 10px 0px 0px 0px
 .titulo-modal-confirmacao span
   color var(--vermelho)
-
+.tarefa__categoria
+    text-transform capitalize
 .titulo-e-checkbox, .categoria-e-menu
     display flex
     flex-direction row

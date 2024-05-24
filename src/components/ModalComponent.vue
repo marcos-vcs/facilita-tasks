@@ -25,7 +25,7 @@ export default {
 </script>
 
 <template>
-    <div class="modal-confirmacao" :style="{ 'display': visivel ? 'block' : 'none' }">
+    <div class="modal" :style="{ 'display': visivel ? 'block' : 'none' }">
         <div class="conteudo-modal" :style="{ 'width': `${tamanhoEmPercentual}%` }">
             <span v-show="exibirBotaoFechar" class="fechar" @click="fechar">
                 <i class="fa-solid fa-xmark"></i>
@@ -48,7 +48,7 @@ export default {
     font-size 1.56rem
 .corpo-modal
     padding 0px 0px 40px 40px
-.modal-confirmacao
+.modal
     position fixed
     z-index 1
     padding-top 100px
@@ -71,4 +71,10 @@ export default {
     color var(--azul-escuro)
     text-decoration none
     cursor pointer
+
+@media screen and (max-width: 992px)
+    .modal
+        padding-top 20px
+    .conteudo-modal
+        width 80% !important
 </style>

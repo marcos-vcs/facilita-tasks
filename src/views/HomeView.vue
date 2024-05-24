@@ -1,5 +1,4 @@
 <script>
-import BotaoFlutuanteComponent from '@/components/BotaoFlutuanteComponent.vue';
 import CabecalhoComponent from '@/components/CabecalhoComponent.vue';
 import MenuLateralComponent from '@/components/MenuLateralComponent.vue';
 import SubMenuLateralComponent from '@/components/SubMenuLateralComponent.vue'
@@ -16,7 +15,6 @@ export default {
     CabecalhoComponent,
     MenuLateralComponent,
     SubMenuLateralComponent,
-    BotaoFlutuanteComponent,
     TarefasView,
   },
   methods: {
@@ -40,8 +38,6 @@ export default {
       </div>
     </div>
   </div>
-
-  <botao-flutuante-component />
 </template>
 
 <style lang="stylus" scoped>

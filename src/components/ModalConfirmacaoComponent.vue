@@ -76,4 +76,10 @@
         color var(--azul-escuro)
         text-decoration none
         cursor pointer
+
+    @media screen and (max-width: 992px)
+        .conteudo-modal
+            width 50% !important
+        .modal-confirmacao
+            padding-top 20px
     </style>
