@@ -86,7 +86,7 @@ export default {
 </script>
 
 <template>
-    <modal-component @fechar="fechar" :tamanhoEmPercentual="50" :visivel="visivel">
+    <modal-component class="modal" @fechar="fechar" :tamanhoEmPercentual="50" :visivel="visivel">
         <template v-slot:titulo>
             {{ titulo }}
         </template>

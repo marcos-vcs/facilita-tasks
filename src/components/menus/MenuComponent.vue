@@ -44,12 +44,12 @@ export default {
 
 <style lang="stylus" scoped>
 .menu-container
-  position relative
-  display inline-block
-
+    position relative
+    display inline-block
 .menu-trigger
-  cursor pointer
+    cursor pointer
 .itens-menu
+    animation: scale-in-fade 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) forwards;
     font-size 0.87rem
     font-family 'Gilroy SemiBold'
     color var(--azul-label)
@@ -64,17 +64,17 @@ export default {
     list-style none
 
 .itens-menu__item
-  display flex
-  align-items center
-  padding 10px 22px 10px 16px
-  cursor pointer
+    display flex
+    align-items center
+    padding 10px 22px 10px 16px
+    cursor pointer
 
 .itens-menu__item:hover
-  background-color var(--branco-fundo-submenu)
+    background-color var(--branco-fundo-submenu)
 
 .bolinha
-  width 9px
-  height 9px
-  border-radius 50%
-  margin-right 8px
+    width 9px
+    height 9px
+    border-radius 50%
+    margin-right 8px
 </style>

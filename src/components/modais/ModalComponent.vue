@@ -57,11 +57,7 @@ export default {
     width 100%
     height 100%
     overflow  auto
-    background-color rgba(0,0,0,0.4)
-.conteudo-modal
-    border-radius 8px
-    background-color var(--branco)
-    margin auto
+    background-color var(--fundo-modal)
 .fechar
     padding 20px
     color var(--azul-label)
@@ -71,6 +67,12 @@ export default {
     color var(--azul-escuro)
     text-decoration none
     cursor pointer
+.conteudo-modal
+    border-radius 8px
+    background-color var(--branco)
+    margin auto
+    -webkit-animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
+    animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
 
 @media screen and (max-width: 992px)
     .modal
