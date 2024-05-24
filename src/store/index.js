@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { tarefa } from './modulos/tarefa/index'
+import { tarefa } from './modulos/tarefa'
 
 export const store = createStore({
   state() {

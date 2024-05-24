@@ -63,8 +63,6 @@ export default {
                     this.estadoModalExclusao = true;
                     break;
             }
-            console.log(opcao);
-            //mecanica de remover tarefa
         },
         excluirTarefa(opcao) {
             if (opcao === false) {
@@ -72,7 +70,7 @@ export default {
                 return;
             }
 
-            // mecanica de excluir item
+            this.$store.commit('tarefa/EXCLUIR', this.id);
 
             this.estadoModalExclusao = false;
         }
