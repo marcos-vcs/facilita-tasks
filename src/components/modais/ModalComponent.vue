@@ -25,8 +25,8 @@ export default {
 </script>
 
 <template>
-    <div class="modal" :style="{ 'display': visivel ? 'block' : 'none' }">
-        <div class="conteudo-modal" :style="{ 'width': `${tamanhoEmPercentual}%` }">
+    <div class="backdrop" :style="{ 'display': visivel ? 'block' : 'none' }">
+        <div class="conteudo-modal animacao-scale-in" :style="{ 'width': `${tamanhoEmPercentual}%` }">
             <span v-show="exibirBotaoFechar" class="fechar" @click="fechar">
                 <i class="fa-solid fa-xmark"></i>
             </span>
@@ -48,7 +48,7 @@ export default {
     font-size 1.56rem
 .corpo-modal
     padding 0px 0px 40px 40px
-.modal
+.backdrop
     position fixed
     z-index 1
     padding-top 100px
@@ -71,12 +71,10 @@ export default {
     border-radius 8px
     background-color var(--branco)
     margin auto
-    -webkit-animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
-    animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
 
 @media screen and (max-width: 992px)
     .modal
-        padding-top 20px
+        padding-top 120px
     .conteudo-modal
-        width 80% !important
+        width 90% !important
 </style>

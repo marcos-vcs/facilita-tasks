@@ -116,7 +116,11 @@ export default {
                         </div>
                     </div>
                     <div class="botao">
-                        <botao-component cor-fundo="var(--cor-botao-incluir-editar)">{{ botao }}</botao-component>
+                        <div>
+                            <botao-component cor-fundo="var(--cor-botao-incluir-editar)">
+                                {{ botao }}
+                            </botao-component>
+                        </div>
                     </div>
                 </div>
             </form>
@@ -126,33 +130,37 @@ export default {
 
 <style lang="stylus" scoped>
 .radio__input
-  -ms-transform scale(1.7)
-  -webkit-transform scale(1.7)
-  transform scale(1.7)
-  margin-right 10px
-  accent-color var(--azul-meio)
+    -ms-transform scale(1.7)
+    -webkit-transform scale(1.7)
+    transform scale(1.7)
+    margin-right 10px
+    accent-color var(--azul-meio)
 .formulario-salvar
-  display flex
-  flex-direction column
-  gap 15px
-  width 94%
+    display flex
+    flex-direction column
+    gap 15px
+    width 94%
 .campo
-  display flex
-  flex-direction column
+    display flex
+    flex-direction column
 .rodape
-  display flex
-  flex-direction row
+    display flex
+    flex-direction row
 .radio
-  display flex
-  flex-direction row
-  align-items baseline
-  gap 10px
-  font-size 0.87rem
-  font-font-family 'Gilroy SemiBold'
-  color var(--azul-label)
+    display flex
+    flex-direction row
+    align-items baseline
+    gap 10px
+    font-size 0.87rem
+    font-font-family 'Gilroy SemiBold'
+    color var(--azul-label)
 .botao
-  display flex
-  flex-direction column
-  align-items flex-end
-  flex 1
+    display flex
+    flex-direction column
+    align-items flex-end
+    flex 1
+@media screen and (max-width: 992px)
+    .radio
+        align-items flex-start
+        flex-flow column wrap
 </style>

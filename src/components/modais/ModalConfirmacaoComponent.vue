@@ -26,8 +26,8 @@
 </script>
 
     <template>
-        <div class="modal-confirmacao" :style="{ 'display': visivel ? 'block' : 'none' }">
-            <div class="conteudo-modal" :style="{ 'width': `${tamanhoEmPercentual}%` }">
+        <div class="backdrop" :style="{ 'display': visivel ? 'block' : 'none' }">
+            <div class="conteudo-modal animacao-scale-in" :style="{ 'width': `${tamanhoEmPercentual}%` }">
                 <div class="titulo-modal">
                     <slot name="titulo"></slot>
                 </div>
@@ -53,7 +53,7 @@
     padding-bottom 46px
 .corpo-modal
     padding 0px 0px 40px 40px
-.modal-confirmacao
+.backdrop
     position fixed
     z-index 1
     padding-top 100px
@@ -73,15 +73,15 @@
     text-decoration none
     cursor pointer
 .conteudo-modal
-    -webkit-animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
-	animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
     border-radius 8px
     background-color var(--branco)
     margin auto
 
 @media screen and (max-width: 992px)
+    .backdrop
+        padding-top 120px
     .conteudo-modal
-        width 50% !important
+        width 90% !important
     .modal-confirmacao
         padding-top 20px
 </style>
