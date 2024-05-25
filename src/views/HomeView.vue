@@ -1,7 +1,7 @@
 <script>
 import CabecalhoComponent from '@/components/menus/CabecalhoComponent.vue';
 import MenuLateralComponent from '@/components/menus/MenuLateralComponent.vue';
-import SubMenuLateralComponent from '@/components/menus/FiltroLateralComponent.vue'
+import FiltroLateralComponent from '@/components/menus/FiltroLateralComponent.vue'
 import TarefasView from './TarefasView.vue';
 import ConfiguracoesView from './ConfiguracoesView.vue';
 
@@ -10,7 +10,7 @@ export default {
   components: {
     CabecalhoComponent,
     MenuLateralComponent,
-    SubMenuLateralComponent,
+    FiltroLateralComponent,
     TarefasView,
     ConfiguracoesView,
   },
@@ -44,7 +44,8 @@ export default {
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
       <div class="principal">
-        <sub-menu-lateral-component v-if="menuSelecionado !== 'configuracoes'" class="filtro" />
+        <filtro-lateral-component v-if="menuSelecionado !== 'configuracoes'" class="filtro" />
+
         <div class="conteudo">
           <tarefas-view v-if="menuSelecionado === 'dashboard' || menuSelecionado === 'tarefas'" />
           <configuracoes-view v-if="menuSelecionado === 'configuracoes'" />
@@ -76,6 +77,8 @@ export default {
   background-color var(--cor-fundo-home)
 
 @media screen and (max-width: 992px)
+  .conteudo
+    min-height: calc(100vh - 69px);
   .principal
     flex-direction column
   .filtro
