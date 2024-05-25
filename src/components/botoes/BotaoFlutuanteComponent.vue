@@ -42,11 +42,4 @@ export default {
 .botao-flutuante:focus
     border none
     outline 2px solid var(--azul-medio)
-
-@media screen and (max-width: 992px)
-    .botao-flutuante
-        bottom 30px
-        right 30px
-        width 90px
-        height 90px
 </style>

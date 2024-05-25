@@ -77,4 +77,9 @@ export default {
         padding-top 120px
     .conteudo-modal
         width 90% !important
+    .corpo-modal
+        padding 0px 0px 40px 20px
+    .titulo-modal
+        padding 40px 20px 30px 20px
+        font-size 1.4rem 
 </style>

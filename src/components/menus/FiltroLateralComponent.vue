@@ -79,9 +79,11 @@ export default {
 
 @media screen and (max-width: 992px)
     .opcoes
+        margin 10px
         display flex
         flex-flow row wrap
-        gap 20px
+        gap 10px
+        justify-content center
         align-items center
     .opcoes li
         font-size 0.8rem

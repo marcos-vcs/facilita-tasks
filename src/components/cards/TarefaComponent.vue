@@ -113,7 +113,8 @@ export default {
         <template v-slot:titulo>
             <div class="titulo-modal-confirmacao">
                 <img src="/images/icone-lixeira.png" alt="Ícone de lixeira.">
-                <p>Tem certeza que deseja <span>excluir</span> esta tarefa?</p>
+                <h3>Tem certeza que deseja <span>excluir</span> esta tarefa?</h3>
+                <p>Esta ação não poderá ser desfeita.</p>
             </div>
 
         </template>
@@ -134,8 +135,13 @@ export default {
   font-size 1.25rem
   font-family 'Gilroy Bold'
   color var(--azul-escuro)
-.titulo-modal-confirmacao p
+.titulo-modal-confirmacao h3
   margin 10px 0px 0px 0px
+.titulo-modal-confirmacao p
+    font-family 'Gilroy SemiBold'
+    font-size 0.93rem
+    color var(--azul-label)
+    margin-top 0
 .titulo-modal-confirmacao span
   color var(--vermelho)
 .tarefa__categoria
@@ -182,4 +188,10 @@ export default {
     flex-flow row wrap
     justify-content flex-start
     align-items center
+
+@media screen and (max-width: 992px)
+    .titulo-modal-confirmacao
+        padding: 0px 10px;
+        margin: 10px auto 0px auto;
+        text-align: center;
 </style>

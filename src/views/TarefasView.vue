@@ -147,18 +147,6 @@ export default {
 <style lang="stylus" scoped>
 .lista-tarefas
   padding-bottom 40px
-.titulo-modal-confirmacao
-  display flex
-  flex-direction column
-  align-items center
-  padding 40px 0px 30px 0px
-  font-size 1.25rem
-  font-family 'Gilroy Bold'
-  color var(--azul-escuro)
-.titulo-modal-confirmacao p
-  margin 10px 0px 0px 0px
-.titulo-modal-confirmacao span
-  color var(--vermelho)
 .container-tarefas
   width 60%
   height: calc(100% - 69px)
