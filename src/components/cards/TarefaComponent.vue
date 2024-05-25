@@ -191,7 +191,7 @@ export default {
 
 @media screen and (max-width: 992px)
     .titulo-modal-confirmacao
-        padding: 0px 10px;
+        padding: 20px 10px;
         margin: 10px auto 0px auto;
         text-align: center;
 </style>
