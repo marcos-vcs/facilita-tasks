@@ -190,6 +190,8 @@ export default {
     align-items center
 
 @media screen and (max-width: 992px)
+    .titulo-e-checkbox
+        width 65%
     .titulo-modal-confirmacao
         padding: 20px 10px;
         margin: 10px auto 0px auto;
