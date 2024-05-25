@@ -17,6 +17,16 @@ export default {
   computed: {
     menuSelecionado() {
       return this.$store.state.menuSelecionado;
+    },
+    visibilidadeMenuResponsivo() {
+      return this.$store.state.exibirMenuResponsivo;
+    }
+  },
+  methods: {
+    alterarVisibilidadeMenuResponsivo(valor) {
+      if (this.visibilidadeMenuResponsivo) {
+        this.$store.commit('ATUALIZA_VISIBILIDADE_MENU_RESPONSIVO', valor);
+      }
     }
   }
 }
@@ -25,6 +35,12 @@ export default {
 <template>
   <div class="container">
     <menu-lateral-component class="menu-lateral" />
+
+    <div @click="alterarVisibilidadeMenuResponsivo(false)" class="container__menu-lateral-responsivo"
+      :class="!visibilidadeMenuResponsivo ? 'd-none' : ''">
+    </div>
+    <menu-lateral-component class="menu-lateral-responsivo" :class="!visibilidadeMenuResponsivo ? 'd-none' : ''" />
+
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
       <div class="principal">
@@ -67,4 +83,15 @@ export default {
     height auto
   .menu-lateral
     display none
+  .menu-lateral-responsivo
+    z-index 100
+    position fixed
+    right 0
+    animation: slide-in 0.3s ease-in-out
+  .container__menu-lateral-responsivo
+    z-index 99
+    width 100%
+    height 100%
+    position fixed
+    background-color var(--fundo-modal)
 </style>

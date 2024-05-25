@@ -19,11 +19,9 @@ export default {
 <template>
     <div class="container">
         <header class="cabecalho">
-            <!-- logo da aplicação -->
             <img src="/images/logo.png" alt="Imagem com a logo da Facilita Tasks." />
         </header>
         <main class="conteudo_principal">
-            <!-- formulário -->
             <h3 class="titulo">Entre com seus dados de acesso.</h3>
             <form class="formulario" @submit.prevent="enviar">
                 <div class="campo mb-16">
@@ -32,7 +30,9 @@ export default {
                 <div class="campo">
                     <campo-component id="senha" texto-label="Senha:" tipo-campo="password"></campo-component>
                 </div>
-                <botao-component class="btn-submit" cor-fundo="var(--verde)">Entrar</botao-component>
+                <botao-component class="btn-submit" cor-fundo="var(--verde)">
+                    Entrar
+                </botao-component>
             </form>
             <a class="link_esqueci_senha" href="#">Esqueci minha senha</a>
         </main>

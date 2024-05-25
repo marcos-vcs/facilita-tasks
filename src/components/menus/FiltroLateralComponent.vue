@@ -85,6 +85,7 @@ export default {
         gap 10px
         justify-content center
         align-items center
+        margin auto
     .opcoes li
         font-size 0.8rem
         align-items baseline

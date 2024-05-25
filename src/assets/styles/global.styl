@@ -34,10 +34,13 @@ body
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
 a{
-  color: var(--azul-medio)
+  color var(--azul-medio)
 }
 .mb-16
-  margin-bottom: 16px
+  margin-bottom 16px
+
+.d-none
+  display none !important
 
 .animacao-scale-in
   -webkit-animation scale-in 0.3s cubic-bezier(0.250, 0.460, 0.450, 0.940)
@@ -58,3 +61,9 @@ a{
   100% 
     transform scale(1)
     opacity 1
+
+@keyframes slide-in
+  from
+    right: -300px
+  to
+    right: 0
