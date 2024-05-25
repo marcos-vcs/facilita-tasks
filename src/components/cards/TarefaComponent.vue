@@ -168,7 +168,7 @@ export default {
     white-space nowrap
     overflow hidden
     text-overflow ellipsis
-    max-width 90%
+    max-width 95%
 .ehFinalizada
     width 32px
 .tarefa__titulo
@@ -190,6 +190,8 @@ export default {
     align-items center
 
 @media screen and (max-width: 992px)
+    .categoria-e-menu
+        gap 10px
     .titulo-e-checkbox
         width 65%
     .titulo-modal-confirmacao
