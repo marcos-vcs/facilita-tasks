@@ -1,7 +1,25 @@
 <script>
 export default {
     name: 'MenuLateralComponent',
-
+    data() {
+        return {
+            opcoesMenu: [
+                { titulo: 'dashboard', icone: '/images/icone-dashboard.png' },
+                { titulo: 'tarefas', icone: '/images/icone-tarefas.png' },
+                { titulo: 'configuracoes', icone: '/images/icone-configuracoes.png' }
+            ]
+        }
+    },
+    computed: {
+        menuSelecionado() {
+            return this.$store.state.menuSelecionado;
+        }
+    },
+    methods: {
+        atualizaMenuSelecionado(valor) {
+            this.$store.commit('ATUALIZAR_MENU_SELECIONADO', valor);
+        }
+    }
 }
 </script>
 
@@ -13,17 +31,10 @@ export default {
 
         <div class="menu-lateral">
             <ul class="lista-opcoes">
-                <li>
-                    <img src="/images/icone-dashboard.png" alt="Icone de dashboard.">
-                    <p>Dashboard</p>
-                </li>
-                <li>
-                    <img src="/images/icone-tarefas.png" alt="Icone de tarefa.">
-                    <p>Tarefas</p>
-                </li>
-                <li>
-                    <img src="/images/icone-configuracoes.png" alt="Icone de configurações.">
-                    <p>Configurações</p>
+                <li v-for="(opcao, key) in opcoesMenu" :key="key" @click="atualizaMenuSelecionado(opcao.titulo)"
+                    class="opcao" :class="menuSelecionado === opcao.titulo ? 'opcao-ativa' : ''">
+                    <img :src="opcao.icone">
+                    <p>{{ opcao.titulo }}</p>
                 </li>
             </ul>
         </div>
@@ -32,6 +43,10 @@ export default {
 </template>
 
 <style lang="stylus" scoped>
+.opcao-ativa
+    background-color var(--cor-menu-selecionado) !important
+.opcao:hover
+    cursor pointer
 .container
     display flex
     flex-direction column
@@ -50,6 +65,8 @@ export default {
     list-style none
     margin 0
     padding 0
+.lista-opcoes p
+    text-transform capitalize
 .lista-opcoes li
     text-align center
     margin auto

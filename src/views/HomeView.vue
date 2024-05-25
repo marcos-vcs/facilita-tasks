@@ -3,6 +3,7 @@ import CabecalhoComponent from '@/components/menus/CabecalhoComponent.vue';
 import MenuLateralComponent from '@/components/menus/MenuLateralComponent.vue';
 import SubMenuLateralComponent from '@/components/menus/FiltroLateralComponent.vue'
 import TarefasView from './TarefasView.vue';
+import ConfiguracoesView from './ConfiguracoesView.vue';
 
 export default {
   name: 'HomeView',
@@ -11,7 +12,13 @@ export default {
     MenuLateralComponent,
     SubMenuLateralComponent,
     TarefasView,
+    ConfiguracoesView,
   },
+  computed: {
+    menuSelecionado() {
+      return this.$store.state.menuSelecionado;
+    }
+  }
 }
 </script>
 
@@ -21,9 +28,10 @@ export default {
     <div class="conteudo-principal">
       <cabecalho-component class="topo" />
       <div class="principal">
-        <sub-menu-lateral-component class="filtro" />
+        <sub-menu-lateral-component v-if="menuSelecionado !== 'configuracoes'" class="filtro" />
         <div class="conteudo">
-          <tarefas-view />
+          <tarefas-view v-if="menuSelecionado === 'dashboard' || menuSelecionado === 'tarefas'" />
+          <configuracoes-view v-if="menuSelecionado === 'configuracoes'" />
         </div>
       </div>
     </div>
