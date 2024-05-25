@@ -29,7 +29,11 @@ export default {
     justify-content center
     font-size 0.68rem
     font-family 'Gilroy Bold'
-    border-radius 50%
+    border-radius 100px
     padding 5px
     min-width 14px
+@media screen and (max-width: 992px)
+    .badge
+        font-size 0.5rem
+        min-width 10px
 </style>

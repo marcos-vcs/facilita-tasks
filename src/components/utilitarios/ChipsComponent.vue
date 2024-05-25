@@ -29,7 +29,7 @@ export default {
     justify-content center
     font-size 0.68rem
     font-family 'Gilroy Bold'
-    border-radius 999px
+    border-radius 100px
     padding 5px 10px
     min-width 20px
     white-space nowrap
