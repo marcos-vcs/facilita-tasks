@@ -8,10 +8,10 @@ export default {
     },
     computed: {
         atividadesUrgentes() {
-            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'urgente');
+            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'urgente' && !t.ehFinalizado);
         },
         atividadesImportantes() {
-            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importante');
+            return this.$store.state.tarefa.tarefas.filter(t => t.categoria === 'importante' && !t.ehFinalizado);
         }
     },
     methods: {

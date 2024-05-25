@@ -184,5 +184,6 @@ export default {
 
 @media screen and (max-width: 992px)
   .container-tarefas
-    width 80%
+    width 90%
+    min-height 80vh
 </style>
